@@ -1,26 +1,30 @@
-import exp from "constants";
+function RowRiwayat(props: any) {
+  return (
+    <div className="border-b border-gray-300 py-4 mb-4"> {/* Menggunakan border bawah untuk memisahkan setiap entri */}
+      <div className="grid grid-cols-12 text-left">
+        <div className="col-span-12 md:col-span-4 text-gray-800 font-semibold">
+          <h3 className="text-lg">{props.jenjang}</h3>
+        </div>
+        <div className="col-span-12 md:col-span-4 text-gray-800 font-semibold">
+          <h3 className="text-lg">{props.sekolah}</h3>
+        </div>
+        <div className="col-span-12 md:col-span-4 text-gray-800 font-semibold">
+          <h3 className="text-lg">{props.tahun}</h3>
+        </div>
+      </div>
+    </div>
+  );
+}
 
-function RowRiwayat (props:any) {
-    return (
-      <div className="border-2 border-indigo-500/75 rounded-1g ☐ bg-blue-800 p-2 my-5">
-      <div className="container mx-auto ">
-      <div className="grid grid-cols-12 gap-1">
-      <div className="col-span-12 md:col-span-4 ">{props.jenjang}</div> 
-        <div className="col-span-12 md:col-span-4 ">{props.sekolah}</div>
-      <div className="col-span-12 md:col-span-4 ">{props.tahun}</div>
-      </div>
-      </div>
-      </div>
-      );
-  }
-  export default function  RiwayatPendidikan() {
-    return (
-        <div className="container mx-auto p-2 text-center pt-20">
-<h2 className="text-2x1">Riwayat Pendidikan</h2>
-<RowRiwayat jenjang="SD" sekolah="SDN BAROS" tahun="2011" />
-<RowRiwayat jenjang="SMP" sekolah="SMPN 1 SODONGHILIR" tahun="2014" />
-<RowRiwayat jenjang="SMA" sekolah="SMA ALMASOEM " tahun="2021" />
-<RowRiwayat jenjang="Sarjana" sekolah="Masoem University" tahun="2025" />
-</div>
-);
+export default function RiwayatPendidikan() {
+  return (
+    <div className="container mx-auto p-6 text-left pt-10 bg-white shadow-lg rounded-lg border border-gray-200 mb-10">
+      <h2 className="text-3xl font-bold text-gray-800 mb-6 border-b border-gray-400 pb-2">Riwayat Pendidikan</h2>
+      <RowRiwayat jenjang="JENJANG PENDIDIKAN" sekolah="SEKOLAH" tahun="TAHUN" />
+      <RowRiwayat jenjang="SD" sekolah="SDN BAROS" tahun="2011" />
+      <RowRiwayat jenjang="SMP" sekolah="SMPN 1 SODONGHILIR" tahun="2014" />
+      <RowRiwayat jenjang="SMA" sekolah="SMA ALMASOEM" tahun="2021" />
+      <RowRiwayat jenjang="Sarjana" sekolah="Masoem University" tahun="2025" />
+    </div>
+  );
 }
