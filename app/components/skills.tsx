@@ -2,12 +2,11 @@ import React from 'react';
 import './skills.css';
 
 const skillsData = [
-    { skill: 'Gaming', level: 'Advanced' },
-    { skill: 'Konsultan', level: 'Intermediate' },
-    { skill: 'Ngoding', level: 'Advanced' },
-    { skill: 'Camping', level: 'Intermediate' },
-    { skill: 'Hiking', level: 'Intermediate' },
-    
+    { skill: 'Programing', level: 90 }, // Persentase dalam angka
+    { skill: 'data analis', level: 70 },
+    { skill: 'Music', level: 90 },
+    { skill: 'Data Mining', level: 60 },
+    { skill: 'Drawing', level: 60 },
 ];
 
 const Skills: React.FC = () => {
@@ -18,7 +17,10 @@ const Skills: React.FC = () => {
                 {skillsData.map((item, index) => (
                     <li key={index} className="skill-item">
                         <span className="skill-name">{item.skill}</span>
-                        <span className="skill-level">{item.level}</span>
+                        <div className="bar-container">
+                            <div className="bar" style={{ width: `${item.level}%` }} />
+                        </div>
+                        <span className="skill-level">{item.level}%</span>
                     </li>
                 ))}
             </ul>
