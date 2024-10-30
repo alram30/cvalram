@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 
@@ -7,6 +7,7 @@ function Rating() {
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState<number>(0); // Pastikan rating selalu tipe number
   const [allRatings, setAllRatings] = useState<number[]>([]); // Tipe array sebagai number[]
+  const [feedbacks, setFeedbacks] = useState<{ name: string; comment: string }[]>([]); // State untuk menyimpan feedback
 
   // Menghitung rata-rata rating
   const averageRating = allRatings.length ? (allRatings.reduce((a, b) => a + b, 0) / allRatings.length).toFixed(1) : '0';
@@ -21,6 +22,9 @@ function Rating() {
 
       // Simpan rating pengguna ke daftar rating
       setAllRatings([...allRatings, rating]);
+
+      // Simpan feedback pengguna
+      setFeedbacks([...feedbacks, { name, comment }]);
 
       alert("Komentar dan rating berhasil dikirim!");
       setName('');
@@ -86,7 +90,7 @@ function Rating() {
 
       {/* Menampilkan Average Rating */}
       <div style={{ marginTop: "2em", fontSize: "18px" }}>
-        <h3 style={{ color: "yellow" }}>Rata-Rata Rating: {averageRating} dari 5 bintang</h3>
+        <h3 style={{ color: "blue" }}>Rata-Rata Rating: {averageRating} dari 5 bintang</h3>
         {allRatings.length > 0 && (
           <div style={{ display: "flex", gap: "5px" }}>
             {[1, 2, 3, 4, 5].map((star) => (
@@ -96,6 +100,27 @@ function Rating() {
             ))}
           </div>
         )}
+      </div>
+
+      {/* Tabel untuk menampilkan nama dan komentar */}
+      <div style={{ marginTop: "2em" }}>
+        <h3>Daftar Komentar</h3>
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr>
+              <th style={{ border: "1px solid #ddd", padding: "8px" }}>Nama</th>
+              <th style={{ border: "1px solid #ddd", padding: "8px" }}>Komentar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {feedbacks.map((feedback, index) => (
+              <tr key={index}>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{feedback.name}</td>
+                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{feedback.comment}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
