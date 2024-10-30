@@ -1,25 +1,32 @@
-function RowPekerjaan (props:any) {
-    return (
-      <div className="border-2 border-indigo-500/75 rounded-1g ☐ bg-blue-800 p-2 my-5">
-      <div className="container mx-auto ">
-      <div className="grid grid-cols-12 gap-1">
-      <div className="col-span-12 md:col-span-4 ">{props.Sebagai}</div> 
-        <div className="col-span-12 md:col-span-4 ">{props.instansi}</div>
-      <div className="col-span-12 md:col-span-4 ">{props.tahun}</div>
+function RowPekerjaan(props: any) {
+  return (
+    <div className="border-b border-gray-300 py-4 mb-4">
+      <div className="grid grid-cols-12 text-left">
+        <div className="col-span-12 md:col-span-4 text-gray-800 font-semibold">
+          <h3 className="text-lg">{props.Sebagai}</h3>
+        </div>
+        <div className="col-span-12 md:col-span-4 text-gray-800 font-semibold">
+          <h3 className="text-lg">{props.instansi}</h3>
+        </div>
+        <div className="col-span-12 md:col-span-4 text-gray-800 font-semibold">
+          <h3 className="text-lg">{props.tahun}</h3>
+        </div>
       </div>
-      </div>
-      </div>
-      );
-  }
-  export default function  RiwayatPekerjaan() {
-    return (
-        <div className="container mx-auto p-2 text-center pt-20">
-<h2 className="text-2x1">Riwayat Pekerjaan</h2>
-<RowPekerjaan Sebagai="Direktur" instansi="Masoem Group" tahun="2015" />
-<RowPekerjaan Sebagai="Direktur" instansi="PT. Mitsuba" tahun="2019" />
-<RowPekerjaan Sebagai="Administrasi" instansi="PT. Epson" tahun="2021" />
-<RowPekerjaan Sebagai="Manajer Produksi" instansi="PT. Kahatek" tahun="2020" />
+    </div>
+  );
+}
 
-</div>
-);
+export default function RiwayatPekerjaan() {
+  return (
+    <div className="container mx-auto p-6 text-left pt-10 bg-white shadow-lg rounded-lg border border-gray-200 mb-10"> {/* Menambahkan mb-10 di sini */}
+      <h2 className="text-3xl font-bold text-gray-800 mb-6 border-b border-gray-400 pb-2">Riwayat Pekerjaan</h2>
+      <RowPekerjaan Sebagai="JABATAN" instansi="PERUSAHAAN" tahun="TAHUN" />
+      <RowPekerjaan Sebagai="Direktur" instansi="Masoem Group" tahun="2015" />
+      <RowPekerjaan Sebagai="Direktur" instansi="PT. Mitsuba" tahun="2019" />
+      <RowPekerjaan Sebagai="Administrasi" instansi="PT. Epson" tahun="2021" />
+      <RowPekerjaan Sebagai="Manajer Produksi" instansi="PT. Kahatek" tahun="2020" />
+    </div>
+  );
+}
+
 }
